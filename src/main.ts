@@ -3,12 +3,11 @@ import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as dotenv from 'dotenv';
 import * as passport from 'passport';
-import { NestExpressApplication } from '@nestjs/platform-express';
 
 dotenv.config();
 
 async function bootstrap() {
-  const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  const app = await NestFactory.create(AppModule);
 
   // Enable CORS for all origins
   app.enableCors({
@@ -30,11 +29,7 @@ async function bootstrap() {
   // Initialize passport
   app.use(passport.initialize());
 
-  // Set a custom port if necessary, otherwise default to 3000
-  const port = process.env.PORT || 3000;
-  await app.listen(port);
-
-  console.log(`Application is running on: http://localhost:${port}`);
+  await app.listen(3000);
 }
 
 bootstrap();
