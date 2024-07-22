@@ -16,6 +16,9 @@ export class LostReport {
 
   @Prop({ required: true })
   police_lost_report_document: string;
+  
+  @Prop({ required: true })
+  support_document_identity: string;
 
   @Prop({ required: true })
   lost_reason: string;

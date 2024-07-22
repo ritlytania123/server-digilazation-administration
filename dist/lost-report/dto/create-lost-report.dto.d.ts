@@ -10,4 +10,6 @@ export declare class CreateLostReportDto {
     lost_time_incident: Date;
     document_lost: DocumentType;
     support_document_identity: string;
+    status: string;
+    reason?: string;
 }

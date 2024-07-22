@@ -55,4 +55,16 @@ __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], CreateLostReportDto.prototype, "support_document_identity", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ example: 'Pending', enum: ['Pending', 'In Progress', 'Done', 'Reject'] }),
+    (0, class_validator_1.IsEnum)(['Pending', 'In Progress', 'Done', 'Reject']),
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", String)
+], CreateLostReportDto.prototype, "status", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ example: 'Additional information or reason', required: false }),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", String)
+], CreateLostReportDto.prototype, "reason", void 0);
 //# sourceMappingURL=create-lost-report.dto.js.map

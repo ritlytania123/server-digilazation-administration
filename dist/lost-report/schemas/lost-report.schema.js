@@ -32,6 +32,10 @@ __decorate([
 __decorate([
     (0, mongoose_1.Prop)({ required: true }),
     __metadata("design:type", String)
+], LostReport.prototype, "support_document_identity", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ required: true }),
+    __metadata("design:type", String)
 ], LostReport.prototype, "lost_reason", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ required: true }),
@@ -45,6 +49,14 @@ __decorate([
     (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'User', required: true }),
     __metadata("design:type", user_schema_1.User)
 ], LostReport.prototype, "user", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: String, enum: ['Pending', 'In Progress', 'Done', 'Reject'], default: 'Pending' }),
+    __metadata("design:type", String)
+], LostReport.prototype, "status", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: String, required: function () { return this.status === 'Done' || this.status === 'Reject'; } }),
+    __metadata("design:type", String)
+], LostReport.prototype, "reason", void 0);
 exports.LostReport = LostReport = __decorate([
     (0, mongoose_1.Schema)({ timestamps: true })
 ], LostReport);

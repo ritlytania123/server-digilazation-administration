@@ -6,10 +6,13 @@ export declare class LostReport {
     full_name: string;
     address: string;
     police_lost_report_document: string;
+    support_document_identity: string;
     lost_reason: string;
     lost_time_incident: Date;
     document_lost: DocumentType;
     user: User;
+    status: string;
+    reason?: string;
 }
 export declare const LostReportSchema: import("mongoose").Schema<LostReport, import("mongoose").Model<LostReport, any, any, any, Document<unknown, any, LostReport> & LostReport & {
     _id: Types.ObjectId;
