@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { LostReport, LostReportDocument } from './schemas/lost-report.schema';
 import { CreateLostReportDto } from './dto/create-lost-report.dto';
-import { UserInterface } from '@/user/schemas/user.schema';
+import { UserInterface } from '../user/schemas/user.schema';
 import { UpdateLostReportDto } from './dto/update-lost-report.dto';
 
 @Injectable()

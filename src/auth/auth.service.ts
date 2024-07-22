@@ -5,7 +5,6 @@ import * as bcrypt from 'bcrypt';
 import { CreateUserDto } from './dto/create-user.dto';
 import { ValidateUserDto } from './dto/validate-user.dto';
 import { DeleteUserDto } from './dto/delete-user.dto';
-import { User } from '@/user/schemas/user.schema';
 
 @Injectable()
 export class AuthService {

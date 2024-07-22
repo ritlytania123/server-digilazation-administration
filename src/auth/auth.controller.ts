@@ -5,7 +5,7 @@ import { LoginDto } from './dto/login.dto';
 import { JwtAuthGuard } from './guard/jwt-auth.guard';
 import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Public } from './decorator/public.decorator';
-import { User } from '@/user/schemas/user.schema';
+import { User } from '../user/schemas/user.schema';
 import { Roles } from './decorator/roles.decorator';
 import { DeleteUserDto } from './dto/delete-user.dto';
 

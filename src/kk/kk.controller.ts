@@ -1,14 +1,12 @@
-import { Controller, Get, Post, Body, Param, Patch, Delete, Req, UseGuards, UnauthorizedException } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Patch, Delete, Req, UnauthorizedException } from '@nestjs/common';
 import { KKService } from './kk.service';
 import { CreateKKDto } from './dto/create-kk.dto';
 import { UpdateKKDto } from './dto/update-kk.dto';
 import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth } from '@nestjs/swagger';
 import { KK } from './schemas/kk.schema';
-import { JwtAuthGuard } from '../auth/guard/jwt-auth.guard';
 import { Roles } from '../auth/decorator/roles.decorator';
-import { RoleGuard } from '../auth/guard/role.guard';
 import { Request } from 'express';
-import { User, UserInterface } from '@/user/schemas/user.schema';
+import { UserInterface } from '../user/schemas/user.schema';
 
 @ApiTags('kk')
 @ApiBearerAuth()

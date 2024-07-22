@@ -1,8 +1,7 @@
-import { Controller, Post, Body, Get, UseGuards, Param, Request, NotFoundException, ForbiddenException, Put } from '@nestjs/common';
+import { Controller, Post, Body, Get, Param, Request, NotFoundException, ForbiddenException, Put } from '@nestjs/common';
 import { UsersService } from './user.service';
 import { CreateUserDto } from '../auth/dto/create-user.dto';
 import { ApiBearerAuth } from '@nestjs/swagger';
-import { JwtAuthGuard } from '@/auth/guard/jwt-auth.guard';
 import { UpdateUserDto } from './dto/update-user.dto';
 
 @Controller('users')
