@@ -28,6 +28,13 @@ export class LostReport {
 
   @Prop({ type: Types.ObjectId, ref: 'User', required: true })
   user: User; // Reference to the User who reported the lost document
+
+  
+  @Prop({ type: String, enum: ['Pending', 'In Progress', 'Done', 'Reject'], default: 'Pending' })
+  status: string;
+
+  @Prop({ type: String, required: function(this: LostReport) { return this.status === 'Done' || this.status === 'Reject'; } })
+  reason?: string; // Reason is required only if status is 'Done' or 'Reject'
 }
 
 export const LostReportSchema = SchemaFactory.createForClass(LostReport);

@@ -30,8 +30,6 @@ export class CreateKTPDto {
   @IsString()
   support_document_identity: string;
 
-  
-
   @ApiProperty({ example: 'Pending', enum: ['Pending', 'In Progress', 'Done', 'Reject'] })
   @IsEnum(['Pending', 'In Progress', 'Done', 'Reject'])
   @IsNotEmpty()

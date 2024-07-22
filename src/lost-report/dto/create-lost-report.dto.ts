@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsString, IsDate, IsEnum } from 'class-validator';
+import { IsString, IsDate, IsEnum, IsNotEmpty, IsOptional } from 'class-validator';
 
 export enum DocumentType {
   KTP = 'ktp',
@@ -34,4 +34,14 @@ export class CreateLostReportDto {
   @ApiProperty({ example: 'ID123456789', description: 'Support document identity' })
   @IsString()
   support_document_identity: string;
+
+  @ApiProperty({ example: 'Pending', enum: ['Pending', 'In Progress', 'Done', 'Reject'] })
+  @IsEnum(['Pending', 'In Progress', 'Done', 'Reject'])
+  @IsNotEmpty()
+  status: string;
+
+  @ApiProperty({ example: 'Additional information or reason', required: false })
+  @IsString()
+  @IsOptional() // Make it optional
+  reason?: string;
 }
