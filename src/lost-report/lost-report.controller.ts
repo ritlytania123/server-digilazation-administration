@@ -29,7 +29,7 @@ export class LostReportController {
   @Get()
   @ApiOperation({ summary: 'Get all lost reports' })
   @ApiResponse({ status: 200, description: 'List of all lost reports', type: [LostReport] })
-  @Roles('admin', 'superadmin') // Only admin and superadmin can access all reports
+  @Roles('admin', 'user', 'superadmin') // Only admin and superadmin can access all reports
   async findAll(@Req() req: Request): Promise<LostReport[]> {
     const user = req.user as UserInterface;
     return this.lostReportService.findAll(user);

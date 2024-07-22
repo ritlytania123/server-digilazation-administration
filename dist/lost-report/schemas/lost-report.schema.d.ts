@@ -1,6 +1,6 @@
 import { Document, Types } from 'mongoose';
 import { DocumentType } from '../dto/create-lost-report.dto';
-import { User } from '@/user/schemas/user.schema';
+import { User } from '../../user/schemas/user.schema';
 export type LostReportDocument = LostReport & Document;
 export declare class LostReport {
     full_name: string;

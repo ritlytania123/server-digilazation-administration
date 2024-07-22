@@ -64,7 +64,7 @@ __decorate([
     (0, common_1.Get)(),
     (0, swagger_1.ApiOperation)({ summary: 'Get all lost reports' }),
     (0, swagger_1.ApiResponse)({ status: 200, description: 'List of all lost reports', type: [lost_report_schema_1.LostReport] }),
-    (0, roles_decorator_1.Roles)('admin', 'superadmin'),
+    (0, roles_decorator_1.Roles)('admin', 'user', 'superadmin'),
     __param(0, (0, common_1.Req)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),

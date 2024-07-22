@@ -1,7 +1,7 @@
 import { AuthService } from './auth.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { LoginDto } from './dto/login.dto';
-import { User } from '@/user/schemas/user.schema';
+import { User } from '../user/schemas/user.schema';
 import { DeleteUserDto } from './dto/delete-user.dto';
 export declare class AuthController {
     private authService;
