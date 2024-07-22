@@ -1,7 +1,5 @@
-// src/kk/dto/update-kk.dto.ts
-
 import { ApiProperty } from '@nestjs/swagger';
-import { IsString, IsDate, IsOptional } from 'class-validator';
+import { IsString, IsDate, IsOptional, IsEnum } from 'class-validator';
 
 export class UpdateKKDto {
   @ApiProperty({ example: 'John Doe', description: 'Full name of the registrant', required: false })
@@ -38,4 +36,14 @@ export class UpdateKKDto {
   @IsString()
   @IsOptional()
   support_document_identity?: string;
+
+  @ApiProperty({ example: 'Pending', enum: ['Pending', 'In Progress', 'Done', 'Reject'], description: 'Status of the KK record', required: false })
+  @IsEnum(['Pending', 'In Progress', 'Done', 'Reject'])
+  @IsOptional()
+  status?: string;
+
+  @ApiProperty({ example: 'Reason for rejection or completion', description: 'Reason for status', required: false })
+  @IsString()
+  @IsOptional()
+  reason?: string;
 }

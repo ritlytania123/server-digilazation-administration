@@ -18,13 +18,19 @@ export class KTPService {
     return newKTP.save();
   }
 
+  
   async findAll(user?: UserInterface): Promise<KTP[]> {
     if (user && user.role === 'user') {
-      return this.ktpModel.find({ user: user._id }).lean(); // Filter by user email
+      return this.ktpModel
+        .find({ user: user._id })
+        .sort({ updatedAt: -1 }) // Sort by updated_at in descending order
+        .lean();
     }
-    return this.ktpModel.find().lean(); // Admin can see all
+    return this.ktpModel
+      .find()
+      .sort({ updatedAt: -1 }) // Sort by updated_at in descending order
+      .lean();
   }
-
   async findOne(id: string, user?: UserInterface): Promise<KTP> {
     const ktp = await this.ktpModel.findById(id).lean();
     if (!ktp) {

@@ -51,7 +51,7 @@ export class KKController {
   @ApiOperation({ summary: 'Update a KK registration by ID' })
   @ApiResponse({ status: 200, description: 'The KK registration has been successfully updated', type: KK })
   @ApiResponse({ status: 404, description: 'KK registration not found' })
-  @Roles('admin', 'user', 'superadmin')
+  @Roles('admin', 'superadmin')
   async update(@Param('id') id: string, @Body() updateKKDto: UpdateKKDto, @Req() req: Request): Promise<KK> {
     const user = req.user;
     return this.kkService.update(id, updateKKDto, user);

@@ -49,7 +49,7 @@ export class KTPController {
   @ApiOperation({ summary: 'Update a KTP registration by ID' })
   @ApiResponse({ status: 200, description: 'The KK registration has been successfully updated', type: KTP })
   @ApiResponse({ status: 404, description: 'KK registration not found' })
-  @Roles('admin', 'user', 'superadmin')
+  @Roles('admin', 'superadmin')
   async update(@Param('id') id: string, @Body() updateKtpDto: UpdateKTPDto, @Req() req: Request): Promise<KTP> {
     const user = req.user;
     return this.ktpService.update(id, updateKtpDto, user);

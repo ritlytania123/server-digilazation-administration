@@ -26,6 +26,12 @@ export class KK {
   @Prop({ required: true })
   support_document_identity: string;
 
+  @Prop({ type: String, enum: ['Pending', 'In Progress', 'Done', 'Reject'], default: 'Pending' })
+  status: string;
+
+  @Prop({ type: String, required: function(this: KK) { return this.status === 'Done' || this.status === 'Reject'; } })
+  reason?: string; // Reason is required only if status is 'Done' or 'Reject'
+
   @Prop({ type: Schema.Types.ObjectId, ref: 'User', required: true })
   user: string; // Reference to User ID
 }

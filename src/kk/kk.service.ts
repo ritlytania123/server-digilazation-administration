@@ -17,10 +17,17 @@ export class KKService {
 
   async findAll(user?: UserInterface): Promise<KK[]> {
     if (user && user.role === 'user') {
-      return this.kkModel.find({ user: user._id }).lean(); // Filter by user email
+      return this.kkModel
+        .find({ user: user._id })
+        .sort({ updatedAt: -1 }) // Sort by updated_at in descending order
+        .lean();
     }
-    return this.kkModel.find().lean(); // Admin can see all
+    return this.kkModel
+      .find()
+      .sort({ updatedAt: -1 }) // Sort by updated_at in descending order
+      .lean();
   }
+  
 
   async findOne(id: string, user?: User): Promise<KK> {
     const kk = await this.kkModel.findById(id).lean();

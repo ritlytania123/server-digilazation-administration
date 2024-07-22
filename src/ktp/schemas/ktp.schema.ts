@@ -29,6 +29,13 @@ export class KTP {
 
   @Prop({ type: Types.ObjectId, ref: 'User', required: true })
   user: User; // Reference to the User who created this KTP
+
+  @Prop({ type: String, enum: ['Pending', 'In Progress', 'Done', 'Reject'], default: 'Pending' })
+  status: string;
+
+  @Prop({ type: String, required: function(this: KTP) { return this.status === 'Done' || this.status === 'Reject'; } })
+  reason?: string; // Reason is required only if status is 'Done' or 'Reject'
+
 }
 
 export const KTPSchema = SchemaFactory.createForClass(KTP);

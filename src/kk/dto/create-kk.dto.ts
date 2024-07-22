@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsString, IsDate, IsNotEmpty, IsMongoId } from 'class-validator';
+import { IsString, IsDate, IsNotEmpty, IsOptional, IsEnum, IsMongoId } from 'class-validator';
 
 export class CreateKKDto {
   @ApiProperty({ example: 'John Doe' })
@@ -36,6 +36,16 @@ export class CreateKKDto {
   @IsString()
   @IsNotEmpty()
   support_document_identity: string;
+
+  @ApiProperty({ example: 'Pending', enum: ['Pending', 'In Progress', 'Done', 'Reject'] })
+  @IsEnum(['Pending', 'In Progress', 'Done', 'Reject'])
+  @IsNotEmpty()
+  status: string;
+
+  @ApiProperty({ example: 'Additional information or reason', required: false })
+  @IsString()
+  @IsOptional() // Make it optional
+  reason?: string;
 
   @ApiProperty({ example: '669b6fc00d79bd1045bd79b1' }) // Example ObjectId
   @IsMongoId()
